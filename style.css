@@ -363,6 +363,12 @@ footer {
 .overlay-bg.active {
     display: block;
 }
+.balance-left{
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
 .footer-content-cart {
     font-size: 15px;
     width: 100%;

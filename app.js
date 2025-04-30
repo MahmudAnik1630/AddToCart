@@ -5,6 +5,8 @@
         const discountPercent = 10;
 
         
+
+        
         const productsList = document.getElementById('productsList');
         //console.log(productsList); [object HTMLDivElement]
         const cartOverlay = document.getElementById('cartOverlay');
@@ -59,7 +61,7 @@
             
             if (couponApplied) {
                 const discount = total * (discountPercent / 100);
-                total -= discount;
+                total = total- discount;
             }
             
             return total;
@@ -138,4 +140,5 @@
         // initialize the page
         loadState();
         displayProducts();
+        
     

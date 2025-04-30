@@ -29,6 +29,13 @@ function updateCartDisplay() {
     
     const total = calculateTotal();
     totalAmount.textContent = `$${total.toFixed(2)}`;
+
+    // balance left 
+    const balanceLeft = document.querySelector('.balancel');
+    let balanceleft = balance - total;
+    if (balanceleft > 0) {
+        balanceLeft.textContent = balanceleft.toFixed(2);
+    }
     
     // check balance
     if (total > balance) {
