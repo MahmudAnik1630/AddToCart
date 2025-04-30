@@ -31,7 +31,7 @@ function updateCartDisplay() {
     totalAmount.textContent = `$${total.toFixed(2)}`;
 
     // balance left 
-    const balanceLeft = document.querySelector('.balancel');
+    
     let balanceleft = balance - total;
     if (balanceleft > 0) {
         balanceLeft.textContent = balanceleft.toFixed(2);
@@ -51,6 +51,9 @@ function updateCartDisplay() {
  function removeFromCart(e) {
     const productId = parseInt(e.target.getAttribute('data-id'));
     cart = cart.filter(item => item.id !== productId);
+    
+    // balance left updated 
+    balanceLeft.textContent = balance.toFixed(2);
     
     updateCartCount();
     updateCartDisplay();

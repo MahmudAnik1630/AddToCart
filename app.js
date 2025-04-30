@@ -21,6 +21,7 @@
         const applyCoupon = document.getElementById('applyCoupon');
         const discountInfo = document.getElementById('discountInfo');
         const checkoutBtn = document.getElementById('checkoutBtn');
+        const balanceLeft = document.querySelector('.balancel');
 
         // load data from localStorage if available
         function loadState() {
