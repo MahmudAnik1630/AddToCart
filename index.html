@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneaker Spot</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+    <!-- main Page -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">Sneaker Spot</a>
+                <div class="account-info">Balance: $<span id="balance">5000.00</span></div>
+                <div class="cart-icon" id="cartIcon">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+ <!-- hero  -->
+    <section class="hero">
+        <h1>Add cupon </h1>
+        <h2>'cupon10'</h2>
+        <h3>to get 10% off</h3>
+
+        
+    </section>
+
+    <section class="container">
+        <h1 class="protext" >Products</h1>
+        <div class="products" id="productsList">
+            <!-- products with js -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Mahmud Ul Hasan. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <p>Built for Speed. Made for Style..</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- main cart -->
+    <div class="overlay-bg" id="overlayBg"></div>
+    <div class="cart-overlay" id="cartOverlay">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="close-cart" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- cart items in js -->
+        </div>
+        <div class="cart-total">
+            <div class="coupon-container">
+                <input type="text" class="coupon-input" id="couponInput" placeholder="Enter coupon code">
+                <button class="apply-coupon" id="applyCoupon">Apply</button>
+            </div>
+            <div class="discount-info" id="discountInfo">Coupon applied: 10% off</div>
+            <div class="total-price">
+                <span>Total:</span>
+                <span id="totalAmount">$0.00</span>
+            </div>
+            <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+            <!-- cart footer  -->
+            <div class="footer-content-cart">
+                <p>&copy; 2025 Mahmud Ul Hasan. All rights reserved.</p>
+                <div class="footer-links-cart">
+                    <a href="#">About Us</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="product.js"></script>
+    <script src="cart.js"></script>
+    <script src="cupon.js"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
