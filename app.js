@@ -35,7 +35,8 @@
             }
             
             if (savedBalance) {
-                balance = parseFloat(savedBalance);
+                balance = parseFloat (savedBalance);
+                console.log(balance+ 1);
                 balanceDisplay.textContent = balance.toFixed(2);
             }
             
