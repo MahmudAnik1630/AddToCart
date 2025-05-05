@@ -1,4 +1,10 @@
-const products = [
+
+        // const productsPerPage = 8;
+        // let currentPage = 1;
+        // const totalPages = Math.ceil(products.length / productsPerPage);
+        // const maxVisiblePages = 5;
+        
+        const products = [
     { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
     { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
     { id: 3, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
@@ -6,10 +12,20 @@ const products = [
     { id: 5, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
     { id: 6, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
     { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
-    { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" }
+    { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
+
+    { id: 9, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
+    { id: 10, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
+    { id: 11, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
+    { id: 12, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
+    { id: 13, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
+    { id: 14, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
+    { id: 15, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
+    { id: 16, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
+    { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" }
 ];
 
- // display products
+//  display products
 
  function displayProducts() {
     productsList.innerHTML = '';
@@ -37,3 +53,45 @@ const products = [
         button.addEventListener('click', addToCart);
     });
 }
+
+// console.log("product length " + products.length);
+let pl = Math.ceil(products.length / 8 );
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const pageNumberDiv = document.getElementById("pageNumber");
+    
+    // Clear any existing content
+    pageNumberDiv.innerHTML = '';
+    
+    // Loop from 1 to products.length
+    for (let i = 1; i <= pl; i++) {
+        // Create button using template literals like in your example
+        pageNumberDiv.className = 'page-number';
+        const buttonHTML = `
+            <button data-page="${i}">
+                ${i}
+            </button>
+        `;
+        
+        // Add the button HTML to the div
+        pageNumberDiv.innerHTML += buttonHTML;
+    }
+    
+    // Add event listeners to all buttons
+    
+
+    
+    const buttons = pageNumberDiv.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const pageNum = this.getAttribute('data-page');
+            console.log(`Page ${pageNum} selected`);
+            // Add your page navigation logic here
+        });
+    });
+});
+
+
+
+

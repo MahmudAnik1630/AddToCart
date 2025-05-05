@@ -122,7 +122,7 @@ header {
 .products {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 70px;
+    gap: 40px;
     margin-bottom: 40px;
 }
 
@@ -187,7 +187,39 @@ header {
     background-color: #6c757d;
     cursor: not-allowed;
 }
+ /* pagination */
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.prev ,.next     {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 6px 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: -4px;
+}
+.prev:hover,
+.next:hover {
+  color: #897e7e;
+}
+.page-number button {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 6px 5px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 800;
+}
+.page-number button:hover {
+    color: #897e7e;
+}
 /* Footer */
 footer {
     background-color: #343a40;

@@ -22,6 +22,9 @@
         const discountInfo = document.getElementById('discountInfo');
         const checkoutBtn = document.getElementById('checkoutBtn');
         const balanceLeft = document.querySelector('.balancel');
+        const prevButton = document.getElementById('prevPage');
+        const nextButton = document.getElementById('nextPage');
+        const pageNumberDiv  = document.getElementById('pageNumber');
 
         // load data from localStorage if available
         function loadState() {
@@ -36,7 +39,7 @@
             
             if (savedBalance) {
                 balance = parseFloat (savedBalance);
-                console.log(balance+ 1);
+                console.log(balance);
                 balanceDisplay.textContent = balance.toFixed(2);
             }
             
