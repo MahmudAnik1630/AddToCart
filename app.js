@@ -144,6 +144,7 @@
 
         // initialize the page
         loadState();
+        buttonCount();
         displayProducts();
         
     

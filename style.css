@@ -33,6 +33,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 15px 0;
 }
 
@@ -47,12 +48,19 @@ header {
     font-weight: 600;
     color: #000000;
 }
+.ico{
+    display: flex;
+    gap: 50%;
+    justify-content: center;
+    align-items: center;
+}
 
-.cart-icon {
+.cart-icon , .wish-icon {
     position: relative;
     cursor: pointer;
     font-size: 24px;
 }
+ 
 .protext {
    
     text-align: center;
@@ -60,7 +68,7 @@ header {
     margin-bottom: 50px;
 }
 
-.cart-count {
+.cart-count ,.wish-count {
     position: absolute;
     top: -8px;
     right: -8px;
@@ -75,6 +83,10 @@ header {
     font-size: 12px;
     font-weight: 700;
 }
+.wish-count{
+    background-color: green;
+}
+
 
 .hero {
     width: 100%;
@@ -469,6 +481,11 @@ footer {
 }
 
 @media (max-width: 576px) {
+    .ico{
+    
+        gap: 10%;
+       
+    }
     .protext {
         font-size: 28px;
         text-align: center;
@@ -506,6 +523,36 @@ footer {
 
         
     }
+}
+@media (max-width: 500px) {
+    .wish-icon{
+        margin-top: -120px;
+        margin-left: 300px;
+    
+        
+       
+    }
+
+}
+@media (max-width: 400px) {
+    .wish-icon{
+        margin-top: -120px;
+        margin-left: 300px;
+    
+        
+       
+    }
+
+}
+@media (max-width: 300px) {
+    .wish-icon{
+        margin-top: -120px;
+        margin-left: 190px;
+    
+        
+       
+    }
+
 }
 
 
