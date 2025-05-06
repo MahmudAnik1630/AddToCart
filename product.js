@@ -17,15 +17,15 @@
     { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
     { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
 
-    { id: 9, name: "Nike P-60000", price: 6699.99, stock: 5, image: "1.jpg" },
-    { id: 10, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
-    { id: 11, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
-    { id: 12, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
-    { id: 13, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
-    { id: 14, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
-    { id: 15, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
-    { id: 16, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
-    { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" }
+    { id: 9, name: "Nike P-60000", price: 6699.99, stock: 5, image: "9.jpg" },
+    { id: 10, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "10.jpeg" },
+    { id: 11, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "11.jpeg" },
+    { id: 12, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "12.avif" },
+    { id: 13, name: "Nike V2K Run", price: 599.99, stock: 3, image: "13.avif" },
+    { id: 14, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "14.jpg" },
+    { id: 15, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "15.jpg" },
+    { id: 16, name: "Nike C1TY", price: 79.99, stock: 10, image: "16.avif" },
+    { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "17.jpg" }
 ];
 
 
@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
             
             from = (pageNum - 1) * 8;
             to = pageNum * 8;
+            
             displayProducts();
 
             });
