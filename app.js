@@ -77,9 +77,7 @@
         }
 
         
-        function updateWishCount() {
-            wishCount.textContent = wish.length;
-        }
+       
         // update cart count
         function updateCartCount() {
             cartCount.textContent = cart.length;
