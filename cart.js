@@ -1,6 +1,13 @@
 // update cart display
 function updateCartDisplay() {
     cartItems.innerHTML = '';
+
+    // hehehehehehheeheh
+    //discountInfo.style.display = 'block';
+        checkoutBtn.style.display = 'block';
+        balanceLeft.parentElement.style.display = 'block';
+        couponInput.style.display='block';
+        applyCoupon.style.display='block';
     
     if (cart.length === 0) {
         cartItems.innerHTML = '<p>Your cart is empty.</p>';
@@ -54,6 +61,7 @@ function updateCartDisplay() {
     
     // balance left updated 
     balanceLeft.textContent = balance.toFixed(2);
+
     
     updateCartCount();
     updateCartDisplay();

@@ -12,7 +12,7 @@ function updateWishDisplay() {
 
     wish.forEach(item => {
         const wishItem = document.createElement('div');
-        wishItem.className = 'cart-item';
+        wishItem.className = 'cart-item ';
         wishItem.innerHTML = `
             <img src="${item.image}" alt="${item.name}" class="cart-item-image">
             <div class="cart-item-info">
@@ -47,6 +47,7 @@ function updateWishDisplay() {
     discountInfo.style.display = 'none';
     checkoutBtn.style.display = 'none';
     balanceLeft.parentElement.style.display = 'none';
+    
 }
 function removeFromWish(e) {
     const productId = parseInt(e.target.getAttribute('data-id'));

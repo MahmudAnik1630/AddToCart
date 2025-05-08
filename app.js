@@ -19,7 +19,7 @@
         const closeCart = document.getElementById('closeCart');
         const cartItems = document.getElementById('cartItems');
         const cartCount = document.getElementById('cartCount');
-        
+        const totElement = document.querySelector('.tot');
         const totalAmount = document.getElementById('totalAmount');
         const balanceDisplay = document.getElementById('balance');
         const couponInput = document.getElementById('couponInput');
@@ -138,6 +138,8 @@
         function toggleCart() {
             cartOverlay.classList.toggle('active');
             overlayBg.classList.toggle('active');
+            totElement.style.display = 'block';
+            totalAmount.textContent = 'block';
             updateCartDisplay();
         }
 
@@ -146,6 +148,18 @@
             header_name.innerText = "Wish List";
             cartOverlay.classList.add('active');
             overlayBg.classList.add('active');
+
+
+            totalAmount.textContent = 'none';
+            discountInfo.style.display = 'none';
+            checkoutBtn.style.display = 'none';
+            balanceLeft.parentElement.style.display = 'none';
+            couponInput.style.display='none';
+            applyCoupon.style.display='none';
+            totElement.style.display = 'none';
+            
+            
+
             updateWishDisplay();
         }
 

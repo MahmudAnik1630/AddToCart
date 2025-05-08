@@ -116,8 +116,8 @@ function displayProducts() {
                 <button class="add-to-cart" data-id="${product.id}" ${isInCart ? 'disabled' : ''}>
                     ${isInCart ? 'Added to Cart' : 'Add to Cart'}
                 </button>
-                <button class="add-to-wish" data-id="${product.id}" ${isInWish ? 'disabled' : ''}>
-                    ${isInWish ? 'Wished' : '❤️'}
+                <button class="add-to-wish wish" data-id="${product.id}" ${isInWish ? 'disabled' : ''}>
+                    ${isInWish ? 'Wished' : '🤍'}
                 </button>
             </div>
         `;
@@ -139,7 +139,7 @@ function displayProducts() {
                 updateWishCount();
                 saveState();
                 e.target.disabled = true;
-                e.target.textContent = 'Wished';
+                e.target.textContent = '❤️';
             }
         });
     });
