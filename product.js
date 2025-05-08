@@ -4,8 +4,8 @@
         // const totalPages = Math.ceil(products.length / productsPerPage);
         // const maxVisiblePages = 5;
         
-        let from =8;
-        let to = 16;
+        let from =0;
+        let to = 8;
         let pageNum = 1;
         const products = [
     { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
@@ -25,7 +25,15 @@
     { id: 14, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "14.jpg" },
     { id: 15, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "15.jpg" },
     { id: 16, name: "Nike C1TY", price: 79.99, stock: 10, image: "16.avif" },
-    { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "17.jpg" }
+    { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "17.jpg" },
+    { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
+    { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
+    { id: 3, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
+    { id: 4, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
+    { id: 5, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
+    { id: 6, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
+    { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
+    { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
 ];
 
 
@@ -68,6 +76,8 @@ document.addEventListener("DOMContentLoaded", function() {
             pageNum = this.getAttribute('data-page');
             console.log(`Page ${pageNum} selected`);
             // Add your page navigation logic here
+
+            
             
             from = (pageNum - 1) * 8;
             to = pageNum * 8;
@@ -109,7 +119,13 @@ function displayProducts() {
                 <p class="product-stock">In stock: ${product.stock}</p>
                 <button class="add-to-cart" data-id="${product.id}" ${isInCart ? 'disabled' : ''}>
                     ${isInCart ? 'Added to Cart' : 'Add to Cart'}
+
+                    <button class="add-to-Wish" data-id="${product.id}" ${isInCart ? 'disabled' : ''}>
+                    ${isInCart ? 'disabled' : '❤️'}
+                    </button>
                 </button>
+                 
+                 
             </div>
         `;
         productsList.appendChild(productEl);

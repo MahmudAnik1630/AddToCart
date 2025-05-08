@@ -1,5 +1,6 @@
 
         let cart = [];
+        let wish = [];
         let balance = 5000;
         let couponApplied = false;
         const discountPercent = 10;
@@ -12,9 +13,11 @@
         const cartOverlay = document.getElementById('cartOverlay');
         const overlayBg = document.getElementById('overlayBg');
         const cartIcon = document.getElementById('cartIcon');
+        const wishIcon = document.getElementById('wishIcon');
         const closeCart = document.getElementById('closeCart');
         const cartItems = document.getElementById('cartItems');
         const cartCount = document.getElementById('cartCount');
+        
         const totalAmount = document.getElementById('totalAmount');
         const balanceDisplay = document.getElementById('balance');
         const couponInput = document.getElementById('couponInput');
@@ -22,8 +25,8 @@
         const discountInfo = document.getElementById('discountInfo');
         const checkoutBtn = document.getElementById('checkoutBtn');
         const balanceLeft = document.querySelector('.balancel');
-        const prevButton = document.getElementById('prevPage');
-        const nextButton = document.getElementById('nextPage');
+        const prevBtn = document.getElementById("prevPage");
+        const nextBtn = document.getElementById("nextPage");
         const pageNumberDiv  = document.getElementById('pageNumber');
 
         // load data from localStorage if available
@@ -32,6 +35,7 @@
             const savedBalance = localStorage.getItem('balance');
             const savedCoupon = localStorage.getItem('couponApplied');
             
+           
             if (savedCart) {
                 cart = JSON.parse(savedCart);
                 updateCartCount();
@@ -73,11 +77,20 @@
         }
 
         
-
+        function updateWishCount() {
+            wishCount.textContent = wish.length;
+        }
         // update cart count
         function updateCartCount() {
             cartCount.textContent = cart.length;
         }
+
+
+
+
+        
+       
+
 
         // add item to cart
         function addToCart(e) {
@@ -105,11 +118,13 @@
             e.target.textContent = 'Added to Cart';
             
             // open cart to show added item
-            toggleCart();
+            //toggleCart();
         }
 
        
 
+
+        
         // toggle cart 
         function toggleCart() {
             cartOverlay.classList.toggle('active');
@@ -120,7 +135,9 @@
        
 
         // event listeners
+        wishIcon.addEventListener('click', toggleCart);
         cartIcon.addEventListener('click', toggleCart);
+        
         closeCart.addEventListener('click', toggleCart);
         overlayBg.addEventListener('click', toggleCart);
         applyCoupon.addEventListener('click', applyCouponCode);
@@ -146,5 +163,6 @@
         loadState();
         buttonCount();
         displayProducts();
+        
         
     
