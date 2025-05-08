@@ -5,7 +5,9 @@
         let couponApplied = false;
         const discountPercent = 10;
 
-        
+        //mycustom
+
+        const header_name = document.getElementById('header_name');
 
         
         const productsList = document.getElementById('productsList');
@@ -32,6 +34,7 @@
         // load data from localStorage if available
         function loadState() {
             const savedCart = localStorage.getItem('cart');
+            const savedWish = localStorage.getItem('wish');
             const savedBalance = localStorage.getItem('balance');
             const savedCoupon = localStorage.getItem('couponApplied');
             
@@ -39,6 +42,11 @@
             if (savedCart) {
                 cart = JSON.parse(savedCart);
                 updateCartCount();
+            }
+
+            if (savedWish) {
+                wish = JSON.parse(savedWish);
+                updateWishCount();
             }
             
             if (savedBalance) {
@@ -58,6 +66,7 @@
         // save state cart,balance,coupon to localstorage
         function saveState() {
             localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('wish', JSON.stringify(wish));
             localStorage.setItem('balance', balance.toString());
             localStorage.setItem('couponApplied', JSON.stringify(couponApplied));
         }
@@ -77,7 +86,9 @@
         }
 
         
-       
+        function updateWishCount() {
+            wishCount.textContent = wish.length;
+        }
         // update cart count
         function updateCartCount() {
             cartCount.textContent = cart.length;
@@ -130,10 +141,18 @@
             updateCartDisplay();
         }
 
+
+        function toggleWish() {
+            header_name.innerText = "Wish List";
+            cartOverlay.classList.add('active');
+            overlayBg.classList.add('active');
+            updateWishDisplay();
+        }
+
        
 
         // event listeners
-        wishIcon.addEventListener('click', toggleCart);
+        wishIcon.addEventListener('click', toggleWish);
         cartIcon.addEventListener('click', toggleCart);
         
         closeCart.addEventListener('click', toggleCart);
