@@ -5,7 +5,8 @@
 // const maxVisiblePages = 5;
 
 let from = 0;
-let to = 8;
+const productsPerPage = 8;
+let to = productsPerPage;
 let pageNum = 1;
 const products = [
     { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
@@ -44,39 +45,57 @@ function buttonCount() {
 
 
     document.addEventListener("DOMContentLoaded", function () {
+
+
+        
         const pageNumberDiv = document.getElementById("pageNumber");
+
+
 
         // Clear any existing content
         pageNumberDiv.innerHTML = '';
+
+        pageNumberDiv.innerHTML += `<button  id="prevBtn" >Previous</button>`;
 
         // Loop from 1 to products.length
         for (let i = 1; i <= pl; i++) {
             // Create button using template literals like in your example
             pageNumberDiv.className = 'page-number';
             const buttonHTML = `
-            <button data-page="${i}">
+            <button  data-page="${i}">
                 ${i}
             </button>
             
         `
 
 
+
             // Add the button HTML to the div
             pageNumberDiv.innerHTML += buttonHTML;
         }
 
-        // Add event listeners to all buttons
+       pageNumberDiv.innerHTML += `<button id="nextBtn">Next</button>`;
+
+
+
+       
+
+        
 
 
 
 
-        const buttons = pageNumberDiv.querySelectorAll('button');
+        const buttons = pageNumberDiv.querySelectorAll('button[data-page]');
         buttons.forEach(button => {
             button.addEventListener('click', function () {
                 pageNum = this.getAttribute('data-page');
-                console.log(`Page ${pageNum} selected`);
+                //console.log(`Page ${pageNum} selected`);
                 // Add your page navigation logic here
 
+                
+                    // Add event listeners to all buttons
+
+       
 
 
                 from = (pageNum - 1) * 8;
@@ -86,6 +105,46 @@ function buttonCount() {
 
             });
         });
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+
+
+        nextBtn.addEventListener('click', nextPage);
+        prevBtn.addEventListener('click',prevPage);
+
+         // next page 
+         
+        function nextPage() {
+            let totalPages = Math.ceil(products.length / productsPerPage);
+            
+            if (pageNum < totalPages) {
+                pageNum++;
+
+                from = (pageNum - 1) * productsPerPage;
+                
+                to = pageNum * productsPerPage;
+                // console.log("from to" + from, to);
+                // console.log("page num" + pageNum);
+                displayProducts();
+                
+            }
+        }
+        // for prev page 
+        function prevPage() {
+            console.log("hello")
+            //pageNum = this.getAttribute('data-page');
+            console.log(pageNum);
+            
+            if (pageNum > 1) {
+                pageNum--;
+                from = (pageNum - 1) * productsPerPage;
+                to = pageNum * productsPerPage;
+                //console.log("from to" + from, to);
+                //console.log("page num" + pageNum);
+                displayProducts();
+                //console.log(`Moved to Page ${pageNum}`);
+            }
+        }
 
 
     });

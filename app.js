@@ -27,8 +27,7 @@
         const discountInfo = document.getElementById('discountInfo');
         const checkoutBtn = document.getElementById('checkoutBtn');
         const balanceLeft = document.querySelector('.balancel');
-        const prevBtn = document.getElementById("prevPage");
-        const nextBtn = document.getElementById("nextPage");
+       
         const pageNumberDiv  = document.getElementById('pageNumber');
 
         // load data from localStorage if available
@@ -162,6 +161,13 @@
 
             updateWishDisplay();
         }
+
+         // for next and prev button 
+        //  let from = 0;
+        //  const productsPerPage = 8;
+        //  let to = productsPerPage;
+        //  let pageNum = 1;
+       
 
        
 
