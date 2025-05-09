@@ -186,6 +186,7 @@ function displayProducts() {
     // Cart event listeners
     document.querySelectorAll('.add-to-cart').forEach(button => {
         button.addEventListener('click', addToCart);
+        
     });
 
     // ✅ Paste this block right here:

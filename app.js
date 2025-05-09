@@ -113,7 +113,12 @@
             // check  balance
             const potentialTotal = calculateTotal() + product.price;
             if (potentialTotal > balance) {
-                alert('Adding this item would exceed your balance.');
+                Swal.fire({
+                    title: "Balance?",
+                    text: "this item would exceed your balance.",
+                    icon: "question"
+                  });
+                
                 return;
             }
             
@@ -191,7 +196,14 @@
                 updateCartCount();
                 updateCartDisplay();
                 saveState();
-                alert('Purchase successful! Thank you for shopping with us.\n\nTime: ' + new Date().toLocaleString());
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: 'Purchase successful! Thank you for shopping with us.\n\nTime: ' + new Date().toLocaleString(),
+                    showConfirmButton: false,
+                    timer: 2500
+                  });
+                
 
             }
         });
