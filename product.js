@@ -3,11 +3,20 @@
 // let currentPage = 1;
 // const totalPages = Math.ceil(products.length / productsPerPage);
 // const maxVisiblePages = 5;
-
+const displayDropdown = document.getElementById('displayItems');
 let from = 0;
-const productsPerPage = 8;
+let productsPerPage = 8;
 let to = productsPerPage;
 let pageNum = 1;
+displayDropdown.addEventListener('change', function() {
+    // Update the productsPerPage variable
+    productsPerPage = parseInt(this.value);
+    console.log(productsPerPage);
+    displayProducts();
+    buttonCount();
+});
+
+
 const products = [
     { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
     { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
@@ -39,9 +48,15 @@ const products = [
 
 
 
+
+
 function buttonCount() {
     // console.log("product length " + products.length);
-    let pl = Math.ceil(products.length / 8);
+
+
+    console.log("p"+productsPerPage);
+    
+    let pl = Math.ceil(products.length / productsPerPage);
 
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -58,6 +73,10 @@ function buttonCount() {
         pageNumberDiv.innerHTML += `<button  id="prevBtn" >Previous</button>`;
 
         // Loop from 1 to products.length
+       
+
+
+
         for (let i = 1; i <= pl; i++) {
             // Create button using template literals like in your example
             pageNumberDiv.className = 'page-number';
@@ -66,7 +85,9 @@ function buttonCount() {
                 ${i}
             </button>
             
+            
         `
+        
 
 
 
@@ -98,8 +119,8 @@ function buttonCount() {
        
 
 
-                from = (pageNum - 1) * 8;
-                to = pageNum * 8;
+                from = (pageNum - 1) * productsPerPage;
+                to = pageNum * productsPerPage;
 
                 displayProducts();
 
@@ -157,6 +178,7 @@ function buttonCount() {
 //  display products
 
 function displayProducts() {
+    
     productsList.innerHTML = '';
     let filter = products.slice(from, to);
 

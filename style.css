@@ -48,6 +48,32 @@ header {
     font-weight: 600;
     color: #000000;
 }
+
+
+.display-options {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.display-options label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.display-options select {
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: white;
+    background-color: #343a40;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
 .ico{
     display: flex;
     gap: 50%;
@@ -518,6 +544,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+    
+    .display-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .display-options label {
+        margin-bottom: 5px;
+    }
     .products {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
