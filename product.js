@@ -11,9 +11,12 @@ let pageNum = 1;
 displayDropdown.addEventListener('change', function() {
     // Update the productsPerPage variable
     productsPerPage = parseInt(this.value);
+    to = productsPerPage;
+
     console.log(productsPerPage);
-    displayProducts();
     buttonCount();
+    displayProducts();
+    
 });
 
 
@@ -36,14 +39,14 @@ const products = [
     { id: 15, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "15.jpg" },
     { id: 16, name: "Nike C1TY", price: 79.99, stock: 10, image: "16.avif" },
     { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "17.jpg" },
-    { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
-    { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
-    { id: 3, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
-    { id: 4, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
-    { id: 5, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
-    { id: 6, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
-    { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
-    { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
+    { id: 18, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
+    { id: 19, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
+    { id: 20, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
+    { id: 21, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
+    { id: 22, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
+    { id: 23, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
+    { id: 24, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
+    { id: 25, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
 ];
 
 
@@ -59,7 +62,7 @@ function buttonCount() {
     let pl = Math.ceil(products.length / productsPerPage);
 
 
-    document.addEventListener("DOMContentLoaded", function () {
+    
 
 
         
@@ -168,7 +171,7 @@ function buttonCount() {
         }
 
 
-    });
+    
 
 
 }

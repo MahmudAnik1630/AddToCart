@@ -211,13 +211,7 @@
         // initialize the page
         loadState();
         buttonCount();
-        displayDropdown.addEventListener('change', function() {
-            // Update the productsPerPage variable
-            productsPerPage = parseInt(this.value);
-            console.log(productsPerPage);
-            displayProducts();
-            buttonCount();
-        });
+
         displayProducts();
         
         
