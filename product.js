@@ -3,11 +3,34 @@
 // let currentPage = 1;
 // const totalPages = Math.ceil(products.length / productsPerPage);
 // const maxVisiblePages = 5;
+
+
+
+
+
+
+
 const displayDropdown = document.getElementById('displayItems');
 let from = 0;
 let productsPerPage = 8;
 let to = productsPerPage;
 let pageNum = 1;
+
+// hehehehhehe 
+let selectedCategory = "All";
+
+// Category dropdown listener
+document.getElementById("categoryItems").addEventListener("change", (e) => {
+    const value = e.target.value;
+
+    if (value === "1") selectedCategory = "All";
+    else if (value === "2") selectedCategory = "Nike";
+    else if (value === "3") selectedCategory = "Adidas";
+    else if (value === "4") selectedCategory = "Puma";
+
+    displayProducts();
+});
+// hehehehhhehhehe 
 displayDropdown.addEventListener('change', function() {
     // Update the productsPerPage variable
     productsPerPage = parseInt(this.value);
@@ -21,32 +44,31 @@ displayDropdown.addEventListener('change', function() {
 
 
 const products = [
-    { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
-    { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
-    { id: 3, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
-    { id: 4, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
-    { id: 5, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
-    { id: 6, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
-    { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
-    { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
-
-    { id: 9, name: "Nike P-60000", price: 6699.99, stock: 5, image: "9.jpg" },
-    { id: 10, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "10.jpeg" },
-    { id: 11, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "11.jpeg" },
-    { id: 12, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "12.avif" },
-    { id: 13, name: "Nike V2K Run", price: 599.99, stock: 3, image: "13.avif" },
-    { id: 14, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "14.jpg" },
-    { id: 15, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "15.jpg" },
-    { id: 16, name: "Nike C1TY", price: 79.99, stock: 10, image: "16.avif" },
-    { id: 17, name: "Nike C1TY", price: 79.99, stock: 10, image: "17.jpg" },
-    { id: 18, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg" },
-    { id: 19, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg" },
-    { id: 20, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg" },
-    { id: 21, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" },
-    { id: 22, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg" },
-    { id: 23, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg" },
-    { id: 24, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg" },
-    { id: 25, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg" },
+    { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg",category :"Nike" },
+    { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg",category :"Nike" },
+    { id: 3, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg",category :"Nike" },
+    { id: 14, name: "Adidas Zoom Vomer 5", price: 49.99, stock: 15, image: "14.jpg", category: "Adidas" },
+    { id: 20, name: "Puma Air Max 270", price: 129.99, stock: 12, image: "3.jpg", category: "Puma" },
+    { id: 21, name: "Puma Air Max 95", price: 89.99, stock: 7, image: "4.jpg", category: "Puma" },
+    { id: 22, name: "Puma V2K Run", price: 599.99, stock: 3, image: "5.jpg", category: "Puma" },
+    { id: 15, name: "Adidas Pegasus Premium", price: 899.99, stock: 4, image: "15.jpg", category: "Adidas" },
+    { id: 16, name: "Adidas C1TY", price: 79.99, stock: 10, image: "16.avif", category: "Adidas" },
+    { id: 4, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg" ,category :"Nike"},
+    { id: 5, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg",category :"Nike" },
+    { id: 9, name: "Adidas P-60000", price: 6699.99, stock: 5, image: "9.jpg", category: "Adidas" },
+    { id: 10, name: "Adidas Air Max Dn", price: 199.99, stock: 8, image: "10.jpeg", category: "Adidas" },
+    { id: 11, name: "Adidas Air Max 270", price: 129.99, stock: 12, image: "11.jpeg", category: "Adidas" },
+    { id: 17, name: "Puma C1TY", price: 79.99, stock: 10, image: "17.jpg", category: "Puma" },
+    { id: 18, name: "Puma P-6000", price: 6699.99, stock: 5, image: "1.jpg", category: "Puma" },
+    { id: 19, name: "Puma Air Max Dn", price: 199.99, stock: 8, image: "2.jpg", category: "Puma" },
+    { id: 6, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg",category :"Nike" },
+    { id: 12, name: "Adidas Air Max 95", price: 89.99, stock: 7, image: "12.avif", category: "Adidas" },
+    { id: 13, name: "Adidas V2K Run", price: 599.99, stock: 3, image: "13.avif", category: "Adidas" },
+    { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg",category :"Nike" },
+    { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg",category :"Nike" },
+    { id: 23, name: "Puma Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg", category: "Puma" },
+    { id: 24, name: "Puma Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg", category: "Puma" },
+    { id: 25, name: "Puma C1TY", price: 79.99, stock: 10, image: "8.jpg", category: "Puma" },
 ];
 
 
@@ -183,7 +205,15 @@ function buttonCount() {
 function displayProducts() {
     
     productsList.innerHTML = '';
-    let filter = products.slice(from, to);
+    let filteredProducts = products;
+    // Filter by selected category if not "All"
+    if (selectedCategory !== "All") {
+        filteredProducts = filteredProducts.filter(product => product.category === selectedCategory);
+        console.log("product"+ products);
+        console.log("product"+filteredProducts);
+        console.log(filteredProducts.length);
+    }
+    let filter = filteredProducts.slice(from, to);
 
     filter.forEach(product => {
         const isInCart = cart.some(item => item.id === product.id);

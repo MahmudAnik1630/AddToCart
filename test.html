@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Category Filter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .filter-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .filter-container select {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            width: 250px;
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-name {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .product-category {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: 600;
+            color: #e63946;
+            margin-bottom: 8px;
+        }
+        
+        .product-stock {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .product-stock.low {
+            color: #e63946;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Catalog</h1>
+        
+        <div class="filter-container">
+            <select id="categoryFilter">
+                <option value="All">All Categories</option>
+                <!-- Categories will be added dynamically -->
+            </select>
+        </div>
+        
+        <div id="productsContainer" class="products-container">
+            <!-- Products will be added dynamically -->
+        </div>
+    </div>
+
+    <script>
+        // Product data
+        const products = [
+            { id: 1, name: "Nike P-6000", price: 6699.99, stock: 5, image: "1.jpg", category: "Nike" },
+            { id: 2, name: "Nike Air Max Dn", price: 199.99, stock: 8, image: "2.jpg", category: "Nike" },
+            { id: 3, name: "Nike Air Max 270", price: 129.99, stock: 12, image: "3.jpg", category: "Nike" },
+            { id: 14, name: "Adidas Zoom Vomer 5", price: 49.99, stock: 15, image: "14.jpg", category: "Adidas" },
+            { id: 20, name: "Puma Air Max 270", price: 129.99, stock: 12, image: "3.jpg", category: "Puma" },
+            { id: 21, name: "Puma Air Max 95", price: 89.99, stock: 7, image: "4.jpg", category: "Puma" },
+            { id: 22, name: "Puma V2K Run", price: 599.99, stock: 3, image: "5.jpg", category: "Puma" },
+            { id: 15, name: "Adidas Pegasus Premium", price: 899.99, stock: 4, image: "15.jpg", category: "Adidas" },
+            { id: 16, name: "Adidas C1TY", price: 79.99, stock: 10, image: "16.avif", category: "Adidas" },
+            { id: 4, name: "Nike Air Max 95", price: 89.99, stock: 7, image: "4.jpg", category: "Nike" },
+            { id: 5, name: "Nike V2K Run", price: 599.99, stock: 3, image: "5.jpg", category: "Nike" },
+            { id: 9, name: "Adidas P-60000", price: 6699.99, stock: 5, image: "9.jpg", category: "Adidas" },
+            { id: 10, name: "Adidas Air Max Dn", price: 199.99, stock: 8, image: "10.jpeg", category: "Adidas" },
+            { id: 11, name: "Adidas Air Max 270", price: 129.99, stock: 12, image: "11.jpeg", category: "Adidas" },
+            { id: 17, name: "Puma C1TY", price: 79.99, stock: 10, image: "17.jpg", category: "Puma" },
+            { id: 18, name: "Puma P-6000", price: 6699.99, stock: 5, image: "1.jpg", category: "Puma" },
+            { id: 19, name: "Puma Air Max Dn", price: 199.99, stock: 8, image: "2.jpg", category: "Puma" },
+            { id: 6, name: "Nike Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg", category: "Nike" },
+            { id: 12, name: "Adidas Air Max 95", price: 89.99, stock: 7, image: "12.avif", category: "Adidas" },
+            { id: 13, name: "Adidas V2K Run", price: 599.99, stock: 3, image: "13.avif", category: "Adidas" },
+            { id: 7, name: "Nike Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg", category: "Nike" },
+            { id: 8, name: "Nike C1TY", price: 79.99, stock: 10, image: "8.jpg", category: "Nike" },
+            { id: 23, name: "Puma Zoom Vomer 5", price: 49.99, stock: 15, image: "6.jpg", category: "Puma" },
+            { id: 24, name: "Puma Pegasus Premium", price: 899.99, stock: 4, image: "7.jpg", category: "Puma" },
+            { id: 25, name: "Puma C1TY", price: 79.99, stock: 10, image: "8.jpg", category: "Puma" },
+        ];
+
+        // Function to get unique categories from products
+        function getUniqueCategories() {
+            // Create a Set to store unique categories
+            const categoriesSet = new Set();
+            
+            // Add each category to the Set
+            products.forEach(product => {
+                if (product.category) {
+                    categoriesSet.add(product.category);
+                }
+            });
+            
+            // Convert Set to Array and return
+            return Array.from(categoriesSet);
+        }
+
+        // Function to populate category dropdown
+        function populateCategoryDropdown() {
+            const categoryFilter = document.getElementById('categoryFilter');
+            const categories = getUniqueCategories();
+            
+            // For each category, create and append an option to the dropdown
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categoryFilter.appendChild(option);
+            });
+        }
+
+        // Function to format price with currency symbol
+        function formatPrice(price) {
+            return '$' + price.toFixed(2);
+        }
+
+        // Function to create a product card element
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            
+            const stockClass = product.stock < 5 ? 'low' : '';
+            
+            card.innerHTML = `
+                <div class="product-image">
+                    <img src="/api/placeholder/250/200" alt="${product.name}">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">${product.name}</h3>
+                    <p class="product-category">Category: ${product.category}</p>
+                    <p class="product-price">${formatPrice(product.price)}</p>
+                    <p class="product-stock ${stockClass}">In Stock: ${product.stock}</p>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Function to display products based on selected category
+        function displayProducts(category = 'All') {
+            const productsContainer = document.getElementById('productsContainer');
+            
+            // Clear existing products
+            productsContainer.innerHTML = '';
+            
+            // Filter products based on category
+            let filteredProducts;
+            
+            if (category === 'All') {
+                filteredProducts = products;
+            } else {
+                filteredProducts = products.filter(product => product.category === category);
+            }
+            
+            // Create and append product cards
+            filteredProducts.forEach(product => {
+                const productCard = createProductCard(product);
+                productsContainer.appendChild(productCard);
+            });
+        }
+
+        // Event listener for category filter change
+        function setupEventListeners() {
+            const categoryFilter = document.getElementById('categoryFilter');
+            
+            categoryFilter.addEventListener('change', function() {
+                const selectedCategory = this.value;
+                displayProducts(selectedCategory);
+            });
+        }
+
+        // Initialize the page
+        function init() {
+            populateCategoryDropdown();
+            setupEventListeners();
+            displayProducts(); // Display all products by default
+        }
+
+        // Run initialization when the page loads
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

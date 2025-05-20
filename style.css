@@ -49,19 +49,19 @@ header {
     color: #000000;
 }
 
-
+.category-options,
 .display-options {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-
+.category-options label,
 .display-options label {
     margin-right: 10px;
     font-weight: bold;
 }
-
+.category-options select,
 .display-options select {
     padding: 4px 6px;
     border-radius: 4px;
